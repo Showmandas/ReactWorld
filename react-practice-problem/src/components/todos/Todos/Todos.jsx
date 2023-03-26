@@ -16,8 +16,8 @@ const Todos = () => {
             {
                 todo.map(todoData=>{
                     console.log(todoData);
-                    <Todo 
-                    todo={todoData.title}
+                   return <Todo 
+                    todo={todoData}
                     key={todoData.id}
                     />
                 })

@@ -1,0 +1,47 @@
+[
+    {
+      "id": "641f24777756ed0a2ea54baa",
+      "picture": "http://placehold.it/32x32",
+      "age": 26,
+      "name": "Kari England",
+      "gender": "female",
+      "company": "SNIPS",
+      "email": "kariengland@snips.com"
+    },
+    {
+      "id": "641f2477995993e6ff26fe58",
+      "picture": "http://placehold.it/32x32",
+      "age": 34,
+      "name": "Mclaughlin Walls",
+      "gender": "male",
+      "company": "ISOLOGIX",
+      "email": "mclaughlinwalls@isologix.com"
+    },
+    {
+      "id": "641f247739442eeb3fb69e0b",
+      "picture": "http://placehold.it/32x32",
+      "age": 20,
+      "name": "Lester Vaughn",
+      "gender": "male",
+      "company": "ENOMEN",
+      "email": "lestervaughn@enomen.com"
+    },
+    {
+      "id": "641f24775dc6df798e0eb44a",
+      "picture": "http://placehold.it/32x32",
+      "age": 32,
+      "name": "Lambert Lewis",
+      "gender": "male",
+      "company": "ANOCHA",
+      "email": "lambertlewis@anocha.com"
+    },
+    {
+      "id": "641f24770d03aebe4526c344",
+      "picture": "http://placehold.it/32x32",
+      "age": 31,
+      "name": "Ochoa Sims",
+      "gender": "male",
+      "company": "ERSUM",
+      "email": "ochoasims@ersum.com"
+    }
+  ]

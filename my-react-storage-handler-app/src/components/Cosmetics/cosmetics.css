@@ -1,0 +1,9 @@
+.cosmetic-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+    background-color: bisque;
+    color: purple;
+    width: 500px;
+    height: 500px;
+}
