@@ -11,7 +11,7 @@ const{image_link,description,integrations,features}=props.singleData
   <div className="card lg:card-side bg-base-100">
   <div className="card-body">
     <h2 className="card-title">{description?description:"not found"}</h2>
-    <div className='flex justify-between'>
+    <div className='flex justify-between text-justify'>
       <div>
         <h2>Features</h2>
         {Object.values(features || {}).map(value=>(
