@@ -1,0 +1,25 @@
+.shop-container{
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    
+    height: auto;
+    background-color:#fff;
+}
+.card-container{
+position: relative;
+
+}
+
+.btn-cart{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #FFE0B3;
+}
