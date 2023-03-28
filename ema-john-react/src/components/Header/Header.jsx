@@ -7,7 +7,7 @@ const Header = () => {
             <div className="navbar  header w-full">
   <div className="flex-1 px-14">
     <a>
-        <img src="./images/Ema-John.png" alt="" />
+        <img src="./images/favicon.ico" alt="" />
         daisyui
     </a>
   </div>
