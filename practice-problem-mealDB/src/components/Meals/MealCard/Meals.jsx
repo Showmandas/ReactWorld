@@ -1,8 +1,14 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./meals.css";
 
 const Meals = () => {
     const[meals,setMeals]=useState([]);
+
+    useEffect(()=>{
+        fetch(`https://www.themealdb.com/api/json/v1/1/random.php`)
+        .then(res=>res.json())
+        .then(data=>setMeals(data.meals))
+    },[])
 
   return (
     <div className="meal-section bg-orange-400 my-8">
