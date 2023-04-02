@@ -1,0 +1,83 @@
+[
+    {
+      "id": "e1a7c529-f91b-4ef5-a661-c2317c5c314e",
+      "name": "Spicy Arrabiata Penne",
+      "category": "Vegetarian",
+      "price": 20,
+      "stock": 14,
+      "ratings": 5,
+      "ratingsCount": 63,
+      "img": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+      "shipping": 21,
+      "quantity": 0
+    },
+    {
+      "id": "e912ad01-2551-48dc-a709-4054cbfbcbbc",
+      "name": "Tamiya",
+      "category": "Vegetarian",
+      "price": 43,
+      "ratings": 4,
+      "ratingsCount": 64,
+      "img": "https://www.themealdb.com/images/media/meals/n3xxd91598732796.jpg",
+      "shipping": 43,
+      "quantity": 0
+    },
+    {
+      "id": "afc5d640-9943-437a-b644-ba1f6f12baa9",
+      "category": "Side",
+      "name": "Corba",
+      "price": 43,
+      "ratings": 3,
+      "ratingsCount": 15,
+      "img": "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg",
+      "shipping": 46,
+      "quantity": 0
+    },
+    {
+      "id": "5b5c43d9-950d-4b9a-b7d9-ca489224a7b2",
+      "category": "Vegetarian",
+      "name": "Dal fry",
+      "price": 26,
+      "ratings": 5,
+      "ratingsCount": 83,
+      "img": "https://www.themealdb.com/images/media/meals/wuxrtu1483564410.jpg",
+      "shipping": 6,
+      "quantity": 0
+    },
+    {
+      "id": "96239c09-8b1c-4c81-99f9-f43e7613eab3",
+      "category": "Pasta",
+      "name": "Lasagne",
+      "price": 39,
+      "stock": 20,
+      "ratings": 3,
+      "ratingsCount": 1,
+      "img": "https://www.themealdb.com/images/media/meals/wtsvxx1511296896.jpg",
+      "shipping": 5,
+      "quantity": 0
+    },
+    {
+      "id": "30698483-f7aa-49ba-9de9-9070f64dc263",
+      "category": "Kafteji",
+      "name": "Kafteji",
+      "price": 23,
+      "ratings": 5,
+      "ratingsCount": 35,
+      "img": "https://www.themealdb.com/images/media/meals/1bsv1q1560459826.jpg",
+      "shipping": 5,
+      "quantity": 0
+    },
+    {
+      "id": "02871edc-272b-4e20-bcc2-b32681213b3c",
+      "category": "Beef",
+      "name": "Big Mac",
+      "seller": "Addidas",
+      "price": 37,
+      "stock": 14,
+      "ratings": 4,
+      "ratingsCount": 68,
+      "img": "https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg",
+      "shipping": 27,
+      "quantity": 0
+    }
+  ]
