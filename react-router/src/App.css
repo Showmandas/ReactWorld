@@ -33,14 +33,8 @@
   }
 }
 
-.grid{
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 1rem;
-}
 .card {
   padding: 2em;
-  border: 1px solid #fff;
 }
 
 .read-the-docs {
