@@ -11,6 +11,9 @@ import Contact from './Components/Contact/Contact';
 import ErrorPage from './Components/ErrorPage/ErrorPage';
 import Home from './Components/Home/Home';
 import Friends from './Components/Friends/Friends';
+import FriendsDetail from './Components/FriendsDetail/FriendsDetail';
+import Posts from './Components/Posts/Posts';
+import PostDetails from './Components/PostDetails/PostDetails';
 // import  { loader } from "./routes/root";
 
 
@@ -43,14 +46,30 @@ const router=createBrowserRouter([
         element:<About />
       },
       {
-        path:'contact',
-        element:<Contact />
-      },
-      {
         path:'friends',
         element:<Friends />,
         loader:()=>fetch('https://jsonplaceholder.typicode.com/users')        
       },
+      {
+        path:'friend/:friendId',
+        element:<FriendsDetail />,
+        loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/users/${params.friendId}`)
+      },
+      {
+        path:'contact',
+        element:<Contact />
+      },
+      {
+        path:'posts',
+        element:<Posts />,
+        loader:()=>fetch('https://jsonplaceholder.typicode.com/posts')
+      },
+      {
+        path:'posts/:postId',
+        element:<PostDetails/>,
+        loader:({params})=>fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+      }
+      
     ]
   },
 ])
