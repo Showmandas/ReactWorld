@@ -1,0 +1,13 @@
+.user{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    width: 200px;
+    height: 200px;
+    align-items: center;
+    justify-content: center;
+    background-color:bisque;
+    padding: 2rem;
+    border-radius: 5px;
+    color: darkorchid;
+}
