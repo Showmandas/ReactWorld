@@ -4,8 +4,7 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
     return (
-        <div className='container bg-secondary-subtle'>
-            
+        <div>
             <Header/>
             <Outlet/>
         </div>
