@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Layout from './components/Layout/Layout';
 import Home from './components/Home';
+import Datas from './components/Datas';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ const router = createBrowserRouter([
         path:'/',
         element:<Home/>
       },
+      {
+       path:'/users',
+       element:<Datas/>,
+       loader:()=>fetch('http://localhost:5000/users')  
+      }
     ]
   },
 ]);

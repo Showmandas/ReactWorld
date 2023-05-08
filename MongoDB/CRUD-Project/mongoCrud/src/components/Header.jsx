@@ -14,10 +14,10 @@ export default function Header() {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav ms-auto">
         <li className="nav-item">
-          <Link className="nav-link active" aria-current="page" href="#">Home</Link>
+          <Link to={'/'} className="nav-link" aria-current="page" href="#">Home</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" href="#">Features</Link>
+          <Link to={'/users'} className="nav-link" href="#">Users</Link>
         </li>
         <li className="nav-item">
           <Link className="nav-link" href="#">Pricing</Link>
