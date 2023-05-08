@@ -1,52 +1,52 @@
-
-const express=require('express');
-const cors=require('cors');
+const express = require('express')
+const cors=require('cors')
 const { MongoClient, ServerApiVersion } = require('mongodb');
-
 const app=express()
-const port=process.env.PORT || 5000;
+const port=process.env.PORT || 5000
 
 app.use(cors())
-app.use(express.json());
+app.use(express.json())
 
 
-const uri = "mongodb+srv://showmandas3216: nrAE49ICpeAR7yVQ@cluster0.wnllbqw.mongodb.net/?retryWrites=true&w=majority";
-
-// nrAE49ICpeAR7yVQ
+// YvgfIPwflywjA1Pi
 
 
+const uri = "mongodb+srv://showmandas3216:YvgfIPwflywjA1Pi@cluster0.mz723df.mongodb.net/?retryWrites=true&w=majority";
 // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    }
-  });
-  async function run() {
-    try {
-
-        const userCollection=client.db('UserData').collection('users');
-
-
-
-
-
-
-
-     await client.db("admin").command({ ping: 1 });
-      console.log("Pinged your deployment. You successfully connected to MongoDB!");
-    } finally {
-      // Ensures that the client will close when you finish/error
-    //   await client.close();
-    }
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
   }
-  run().catch(console.dir);
+});
+async function run() {
+  try {
+    const usersCollection=client.db('userdb').collection('userdata')
+    // Connect the client to the server	(optional starting in v4.7)
+    app.post('/users',async(req,res)=>{
+        const user=req.body;
+        console.log(user)
+        const result=await usersCollection.insertOne(user);
+        res.send(result);
+    })
+    // await client.connect();
+    // Send a ping to confirm a successful connection
+    await client.db("admin").command({ ping: 1 });
+    console.log("Pinged your deployment. You successfully connected to MongoDB!");
+  } finally {
+    // Ensures that the client will close when you finish/error
+    // await client.close();
+  }
+}
+run().catch(console.dir);
+
+
 
 app.get('/',(req,res)=>{
-    res.send("crud project is running");
+    res.send("simple crud is running");
 })
 
 app.listen(port,()=>{
-    console.log(`crud project is running on port ${port}`);
+    console.log(`Simple crud is running on port ${port}`);
 })
