@@ -9,6 +9,7 @@ import {
 import Layout from './components/Layout/Layout';
 import Home from './components/Home';
 import Datas from './components/Datas';
+import Update from './components/Update';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,12 @@ const router = createBrowserRouter([
        path:'/users',
        element:<Datas/>,
        loader:()=>fetch('http://localhost:5000/users')  
+      },
+      {
+        path:'/update/:id',
+        element:<Update/>,
+        loader:({params})=>fetch(`http://localhost:5000/users/${params.id}`)
+
       }
     ]
   },

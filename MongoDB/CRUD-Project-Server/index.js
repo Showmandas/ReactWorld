@@ -29,6 +29,14 @@ async function run() {
         const result=await cursor.toArray()
         res.send(result)
     })
+
+    app.get('/users/:id',async(req,res)=>{
+        const id=req.params.id;
+        const query={_id:new ObjectId(id)}
+        const user=await usersCollection.findOne(query);
+        res.send(user)
+    })
+
     // create user
     app.post('/users',async(req,res)=>{
         const user=req.body;
@@ -44,6 +52,23 @@ async function run() {
         const result=await usersCollection.deleteOne(query)
         res.send(result)
     })
+
+    // update user 
+    app.put('/users/:id',async(req,res)=>{
+        const id=req.params.id;
+        const upDateUser=req.body;
+        const filter={_id: new ObjectId(id)}
+        const options={upsert:true}
+        const userUpdate={
+            $set:{
+                name:upDateUser.name,
+                email:upDateUser.email,
+            }
+        }
+        const result=await usersCollection.updateOne(filter,userUpdate,options);
+        res.send(result)
+    })
+
     // await client.connect();
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function UserCard({user}) {
     const[userdata,setUserData]=useState(user);
@@ -29,7 +30,7 @@ export default function UserCard({user}) {
     <p>{phone}</p>
     <div className='d-flex justify-content-center gap-3 mt-4'>
         <button className='btn bg-danger-subtle' onClick={()=>handleDelete(_id)}>Delete</button>
-        <button className='btn bg-warning-subtle'>Update</button>
+        <Link to={`/update/${_id}`}><button className='btn bg-warning-subtle'>Update</button></Link>
     </div>
     </div>
   )
