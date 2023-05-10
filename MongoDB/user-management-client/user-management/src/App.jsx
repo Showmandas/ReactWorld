@@ -12,6 +12,15 @@ function App() {
     const status=form.status.value;
     const user={name,email,gender,status}
     console.log(user)
+    fetch('http://localhost:5000/users',{
+      method:'POST',
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify(user)
+    })
+    .then(res=>res.json())
+    .then(data=>console.log(data))
   }
   return (
     <div className='container d-flex flex-column m-auto justify-content-center align-items-center mt-5 w-50'>
