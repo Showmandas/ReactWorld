@@ -1,6 +1,6 @@
 const express =require('express')
 const cors=require('cors')
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion,ObjectId } = require('mongodb');
 require('dotenv').config()
 const port=process.env.PORT || 5000;
 const app=express()
@@ -27,18 +27,54 @@ async function run() {
     // await client.connect();
    const userCollection=client.db('userdb').collection('usersData')
 
+//    read users 
+   app.get('/users',async(req,res)=>{
+    const cursor=userCollection.find();
+    const user=await cursor.toArray()
+    res.send(user)
+   })
+
+   app.get('/users/:id',async(req,res)=>{
+    const id=req.params.id
+    const query={_id: new ObjectId(id)}
+    const user=await userCollection.findOne(query)
+    res.send(user);
+   })
+
 //    create user 
     app.post('/users',async(req,res)=>{
         const newUser=req.body;
         console.log(newUser)
         const result=await userCollection.insertOne(newUser);
         res.send(result)
-
     })
 
+//delete user
+app.delete('/users/:id',async(req,res)=>{
+    const id=req.params.id
+    const query={_id: new ObjectId(id)}
+    const result=await userCollection.deleteOne(query)
+    res.send(result);
+})
 
+// update user 
+app.put('/users/:id',async(req,res)=>{
+    const id=req.params.id
+    const updateuser=req.body
+    const filter={_id:new ObjectId(id)}
+    const options={upsert:true}
+    const updateUser={
+        $set:{
+            name:updateuser.name,
+            email:updateuser.email,
+            gender:updateuser.gender,
+            status:updateuser.status
+        }
 
-
+    }
+    const result=await userCollection.updateOne(filter,updateUser,options)
+    res.send(result)
+})
 
 
     // Send a ping to confirm a successful connection
