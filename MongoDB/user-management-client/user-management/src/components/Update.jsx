@@ -1,8 +1,10 @@
 import React from 'react'
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2'
 
 export default function Update() {
     const loadData=useLoaderData()
+    const navigate=useNavigate()
     console.log(loadData)
     const handleUpdate=(e)=>{
         e.preventDefault()
@@ -23,7 +25,13 @@ export default function Update() {
         .then(res=>res.json())
         .then(data=>{console.log(data);
           if(data.modifiedCount > 0){
-            alert("User data updated successfully")
+            // alert("User data updated successfully")
+            Swal.fire({    
+                text: 'User data updates successfully.',
+                icon: 'success'
+              }); 
+              navigate('/users')
+      
           }
         })
       }
@@ -41,13 +49,13 @@ export default function Update() {
     <input type="email" name='email' defaultValue={loadData?.email} className="form-control" id="email" placeholder='update email' required/>
   </div>
   <div className="form-check mb-3">
-  <input className="form-check-input" type="radio" defaultChecked={loadData?.gender} name="gender" value='Male' id="gender" required/>
+  <input className="form-check-input" type="radio" checked={loadData?.gender==='Male'} name="gender" value='Male' id="gender" required/>
   <label className="form-check-label">
     Male
   </label>
 </div>
   <div className="form-check mb-3">
-  <input className="form-check-input" type="radio" name="gender" defaultChecked={loadData?.gender} value='Female' id="gender" required/>
+  <input className="form-check-input" type="radio" name="gender" checked={loadData?.gender === 'Female'}  value='Female' id="gender" required/>
   <label className="form-check-label">
     Female
   </label>

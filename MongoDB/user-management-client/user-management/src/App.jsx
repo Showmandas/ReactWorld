@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './App.css'
+import { useNavigate } from 'react-router-dom'
+// import Swal from 'sweetalert2/dist/sweetalert2.js'
+import Swal from 'sweetalert2'
+// import 'sweetalert2/src/sweetalert2.scss'
 
 function App() {
   // const [count, setCount] = useState(0)
+  const navigate=useNavigate()
   const handleFormCreate=(e)=>{
     e.preventDefault()
     const form=e.target;
@@ -22,8 +27,13 @@ function App() {
     .then(res=>res.json())
     .then(data=>{console.log(data);
       if(data.insertedId){
-        alert("User data added successfully")
+        Swal.fire({  
+          title: 'Good job!',  
+          text: 'User added successfully.',
+          icon: 'success'
+        }); 
         form.reset()
+        navigate('/users')
       }
     })
   }
