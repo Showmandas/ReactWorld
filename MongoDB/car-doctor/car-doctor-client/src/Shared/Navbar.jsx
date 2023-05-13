@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import logo from '../../src/assets/logo.svg'
 import { Link, NavLink } from 'react-router-dom'
+import { AuthContext } from '../Provider/AuthProvider'
 export default function Navbar() {
+    const{user,logOut}=useContext(AuthContext)
+    const handleLogout=()=>{
+        logOut()
+        .then(()=>{})
+        .catch(error=>console.log(error))
+    }
     const navItems= <>
         <li><NavLink to={'/'}>Home</NavLink></li>
         <li>
@@ -9,7 +16,14 @@ export default function Navbar() {
             About
             </NavLink>
         </li>
-        <li><NavLink>Item 3</NavLink></li>
+        {user?.email ?
+        <>
+        <li><NavLink to={'bookings'}>My bookings</NavLink></li>
+        <li><button className='btn' onClick={handleLogout}>LogOut</button></li>
+        </>
+          : <li><NavLink to={'/login'}>Login</NavLink></li>
+        
+        }
     </>
   return (
     <div className="navbar bg-base-100 h-28 mb-4">

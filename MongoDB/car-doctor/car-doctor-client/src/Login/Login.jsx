@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../Provider/AuthProvider'
 
 export default function Login() {
-    const{signin}=useContext(AuthContext)
+    const{signIn}=useContext(AuthContext)
     const handleLogin=(e)=>{
         e.preventDefault()
         const form=e.target
@@ -12,7 +12,7 @@ export default function Login() {
         const password=form.password.value;
         console.log(email,password)
 
-       signin(email,password)
+       signIn(email,password)
        .then(result=>{
         const loggedUser=result.user
         console.log(loggedUser)
