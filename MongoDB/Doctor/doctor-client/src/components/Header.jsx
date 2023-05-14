@@ -9,6 +9,7 @@ export default function Header() {
     const handleLogout=()=>{
         logOut()
         .then(()=>{
+          localStorage.removeItem('car-access-token')
             Swal.fire({
                 icon: 'success',
                 title: 'You are logged out',

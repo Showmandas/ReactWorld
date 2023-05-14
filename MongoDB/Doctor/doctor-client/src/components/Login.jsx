@@ -26,7 +26,22 @@ const Login = () => {
         signInUser(email, password)
             .then(result => {
                 const logUser = result.user;
-                console.log(logUser);
+                const loggedUser={
+                    email:logUser.email
+                }
+                console.log(loggedUser);
+                fetch('http://localhost:5000/jwt',{
+                    method:"POST",
+                    headers:{
+                        'content-type':'application/json'
+                    },
+                    body:JSON.stringify(loggedUser)
+
+                })
+                .then(res=>res.json())
+                .then(data=>{console.log('jwt response',data);
+                 localStorage.setItem('car-access-token',data.token)
+            })
                 Swal.fire({
                     icon: 'success',
                     title: 'Log in successfull',

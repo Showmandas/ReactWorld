@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLoaderData, useNavigate } from 'react-router-dom'
 import Swal from 'sweetalert2'
+import { AuthContext } from '../Provider/AuthProvider';
 
 export default function BookService() {
+  const {user}=useContext(AuthContext)
     // const doctorData=useLoaderData()
     const navigate=useNavigate();
     // console.log(doctorData)
@@ -17,7 +19,8 @@ export default function BookService() {
         const gender=form.gender.value
         const msg=form.msg.value
         const date=form.date.value
-        const datas={name,age,phone,gender,msg,date}
+        const email=user.email
+        const datas={name,age,phone,gender,msg,date,email}
         console.log(datas)
 
         fetch('http://localhost:5000/bookings',{
