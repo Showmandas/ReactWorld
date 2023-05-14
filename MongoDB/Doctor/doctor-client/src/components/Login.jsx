@@ -14,7 +14,7 @@ import Swal from 'sweetalert2'
 const Login = () => {
     const [success, setSuccess] = useState('')
     const [error, setError] = useState('')
-    const { signInUser, user } = useContext(AuthContext);
+    const { signInUser, user,googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
     const navigate = useNavigate()
@@ -57,7 +57,13 @@ const Login = () => {
     }
 
     //google sign in
-
+    const handleGoogleSignIn=()=>{
+        googleSignIn()
+        .then(result=>{
+            console.log(result.user)
+        })
+        .catch(error=>{console.log(error)})
+    }
 
     return (
         <div className='container my-5 mb-5'>
@@ -77,6 +83,7 @@ const Login = () => {
                 <div className='mb-3'>
                     <p className='fs-5 text-center'>Don't have account ? please <Link to={'/register'} className='text-decoration-none'>Register</Link></p>
                 </div>
+                <button className='btn bg-success fw-bold text-white' onClick={handleGoogleSignIn}>Google</button>
                 <p className='text-success fw-bold text-center fs-4'>{success}</p>
                 <p className='text-danger fw-bold text-center fs-4'>{error}</p>
 

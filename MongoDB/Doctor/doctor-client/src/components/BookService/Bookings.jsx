@@ -3,10 +3,12 @@ import React, { useContext, useEffect, useState } from "react";
 // import { useLoaderData } from 'react-router-dom'
 import Swal from "sweetalert2";
 import { AuthContext } from "../Provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 export default function Bookings() {
   const [booking, setBooking] = useState([]);
   console.log(booking);
+  const navigate=useNavigate()
   const { user } = useContext(AuthContext);
   const handleDelete = (id) => {
     console.log(id);
@@ -39,9 +41,21 @@ export default function Bookings() {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:5000/bookings?email=${user?.email}`)
+    fetch(`http://localhost:5000/bookings?email=${user?.email}`,{
+      method:'GET',
+      headers:{
+        authorization:`Bearer ${localStorage.getItem('car-access-token')}`
+      }
+    })
       .then((res) => res.json())
-      .then((data) => setBooking(data));
+      .then((data) => {
+        if(!data.error){
+          
+        setBooking(data)
+        }else{
+     navigate('/')
+        }
+      });
   }, [user]);
 
   const handlePay = (id) => {
